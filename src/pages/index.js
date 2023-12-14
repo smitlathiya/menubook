@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "@/component/form";
+import {ToastContainer, toast} from "react-toastify";
 const myCss = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
@@ -24,6 +25,7 @@ const Home = () => {
       const response = await axios.get("/api/read");
       setProducts(response.data.data);
     } catch (error) {
+      toast.error("Something went wrong")
       console.error("Error fetching products:", error);
     }
   };
@@ -40,9 +42,11 @@ const Home = () => {
       if (response.data.success) {
         fetchProducts();
       } else {
+        toast.error("Something went wrong")
         console.error("Failed to delete product");
       }
     } catch (error) {
+      toast.error("Something went wrong")
       console.error("Error deleting product:", error);
     }
   };
@@ -59,6 +63,7 @@ const Home = () => {
 
   return (
     <Container>
+      <ToastContainer />
       <div>
         <Form fetchData={fetchProducts} updateData={newProduct} />
         <h1>Product List</h1>

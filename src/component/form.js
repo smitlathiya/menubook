@@ -45,9 +45,11 @@ const Form = ({ fetchData, updateData }) => {
         setNewProduct({ title: "", price: 0, size: "", code: "", id: "" });
         fetchData();
       } else {
+        toast.error("Something went wrong")
         console.error("Failed to add product");
       }
     } catch (error) {
+      toast.error("Something went wrong")
       console.error("Error adding product:", error);
     }
   };
