@@ -5,6 +5,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "@/component/form";
 import {ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const myCss = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
